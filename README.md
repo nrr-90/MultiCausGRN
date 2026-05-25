@@ -41,6 +41,7 @@ A cleaned gene-by-cell matrix, for example:
 
 ```text
 PBMC_multiome_preprocessed/PBMC/Model_INPUT_A
+An example of the Expression File can be found at: 10.5281/zenodo.20377753
 
 - Rows: genes
 - Columns: cells
