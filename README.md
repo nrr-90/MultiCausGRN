@@ -40,8 +40,7 @@ The implementation described in the manuscript expects the following processed f
 A cleaned gene-by-cell matrix, for example:
 
 ```text
-data/processed/ExpressionData_clean.csv
-```
+PBMC_multiome_preprocessed/PBMC/Model_INPUT_A
 
 - Rows: genes
 - Columns: cells
@@ -51,7 +50,7 @@ data/processed/ExpressionData_clean.csv
 A CSV file containing known TF-target regulatory pairs, for example:
 
 ```text
-data/processed/Positive_edges.csv
+PBMC_multiome_preprocessed/PBMC/Model_INPUT_A/Positive_edges.csv
 ```
 
 Example columns:
@@ -70,7 +69,7 @@ Optional separate files or split generation during preprocessing.
 Processed causal prior edges from OmniPath mapped to genes in the expression matrix, for example:
 
 ```text
-data/prior/omnipath_prior_edges.csv
+PBMC_multiome_preprocessed/PBMC/Model_INPUT_A/omnipath_prior_edges.csv
 ```
 
 ## Minimal Dependencies
@@ -101,8 +100,8 @@ Typical dependencies for the current implementation include:
 ### Train the causal-prior model
 
 ```bash
-python Model/code.py \
-  --data_dir data/processed/ \
+python Demo/code.py \
+  --data_dir PBMC_multiome_preprocessed/PBMC/Model_INPUT_A/Filtered_prior_edges_train_only.csv \
   --use_causal_prior true \
   --seed 1
 ```
@@ -112,7 +111,7 @@ python Model/code.py \
 ```bash
 for seed in 1 2 4 8 16
 do
-  python Model/Demo.py \ --data_dir data/processed/ --use_causal_prior true --seed $seed
+  python Model/Demo.py/Demo-Omics-PBMC-causal.py \ --data_dir PBMC_multiome_preprocessed/PBMC/Model_INPUT_A --use_causal_prior true --seed $seed
 done
 ```
 
