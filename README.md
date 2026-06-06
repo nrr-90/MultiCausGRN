@@ -24,7 +24,7 @@ Use the official 10x Genomics PBMC multiome dataset page:
 This dataset provides paired scRNA-seq and scATAC-seq measurements suitable for multi-omics GRN reconstruction.
 
 ### 2) Benchmark datasets
-If you use benchmark datasets from BEELINE, cite the benchmark paper and place processed splits under `data/processed/`.
+If you use benchmark datasets from BEELINE, cite the benchmark paper and place processed splits under `BEELINE/`.
 
 ### 3) Prior regulatory network
 Curated TF-target prior interactions can be obtained from:
@@ -101,10 +101,9 @@ Typical dependencies for the current implementation include:
 ### Train the causal-prior model
 
 ```bash
-python Demo/code.py \
-  --data_dir PBMC_multiome_preprocessed/PBMC/Model_INPUT_A/Filtered_prior_edges_train_only.csv \
-  --use_causal_prior true \
-  --seed 1
+python Demo/Demo-Omics-PBMC-causal.py \
+  --seed 2 \
+  --prior_edges "PBMC_multiome_preprocessed/PBMC/Model_INPUT_A/TRRUST_prior_edges_no_val_test_set2.csv"
 ```
 
 ###  Repeat over multiple seeds
@@ -112,7 +111,9 @@ python Demo/code.py \
 ```bash
 for seed in 1 2 4 8 16
 do
-  python Model/Demo.py/Demo-Omics-PBMC-causal.py \ --data_dir PBMC_multiome_preprocessed/PBMC/Model_INPUT_A --use_causal_prior true --seed $seed
+ python Demo/Demo-Omics-PBMC-causal.py \
+  --seed $seed \
+  --prior_edges "PBMC_multiome_preprocessed/PBMC/Model_INPUT_A/TRRUST_prior_edges_no_val_test_set2.csv"
 done
 ```
 
