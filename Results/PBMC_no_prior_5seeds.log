@@ -1,0 +1,35 @@
+Running seed 1
+train row: [3778 8972    0] int64 int64
+train pos rate: 0.5000321646831779
+val pos rate: 0.4998498949264485
+test pos rate: 0.5
+Adjacency source: train positives only
+Train positive edges used in adjacency: 7773
+Running seed 2
+train row: [3778 8972    0] int64 int64
+train pos rate: 0.5000321646831779
+val pos rate: 0.4998498949264485
+test pos rate: 0.5
+Adjacency source: train positives only
+Train positive edges used in adjacency: 7773
+Running seed 4
+train row: [3778 8972    0] int64 int64
+train pos rate: 0.5000321646831779
+val pos rate: 0.4998498949264485
+test pos rate: 0.5
+Adjacency source: train positives only
+Train positive edges used in adjacency: 7773
+Running seed 8
+train row: [3778 8972    0] int64 int64
+train pos rate: 0.5000321646831779
+val pos rate: 0.4998498949264485
+test pos rate: 0.5
+Adjacency source: train positives only
+Train positive edges used in adjacency: 7773
+Running seed 16
+train row: [3778 8972    0] int64 int64
+train pos rate: 0.5000321646831779
+val pos rate: 0.4998498949264485
+test pos rate: 0.5
+Adjacency source: train positives only
+Train positive edges used in adjacency: 7773
