@@ -20,4 +20,4 @@ The demo shows the hESC and mESC scRNA-seq data with cell-type-specific network.
 
 ### Run
 
-   `` python Demo.py``
+   `` python Demo-Omics-PBMC-improved.py``
