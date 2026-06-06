@@ -66,9 +66,9 @@ def embed2file(tf_embed, tg_embed, gene_names, tf_path, target_path):
 
 
 #density = Network_Statistic(data_type,num,net_type)
-exp_file = '/content/drive/MyDrive/MultiCausGRN/PBMC_multiome_preprocessed/PBMC/Model_INPUT_A/ExpressionData_clean.csv'
-tf_file = "/content/drive/MyDrive/MultiCausGRN/PBMC_multiome_preprocessed/PBMC/Model_INPUT_A/TF.csv"
-target_file = "/content/drive/MyDrive/MultiCausGRN/PBMC_multiome_preprocessed/PBMC/Model_INPUT_A/Target.csv"
+exp_file = '../../PBMC_multiome_preprocessed/PBMC/Model_INPUT_A/ExpressionData_clean.csv'
+tf_file = "../../PBMC_multiome_preprocessed/PBMC/Model_INPUT_A/TF.csv"
+target_file = "../../PBMC_multiome_preprocessed/PBMC/Model_INPUT_A/Target.csv"
 
 data_input = pd.read_csv(exp_file,index_col=0)
 loader = load_data(data_input)
@@ -82,9 +82,9 @@ device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 data_feature = feature.to(device)
 tf = tf.to(device)
 
-train_file = "/content/drive/MyDrive/MultiCausGRN/PBMC_multiome_preprocessed/PBMC/Model_INPUT_A/Train_set2.csv"
-test_file = "/content/drive/MyDrive/MultiCausGRN/PBMC_multiome_preprocessed/PBMC/Model_INPUT_A/Test_set2.csv"
-val_file = "/content/drive/MyDrive/MultiCausGRN/PBMC_multiome_preprocessed/PBMC/Model_INPUT_A/Validation_set2.csv"
+train_file = "../../PBMC_multiome_preprocessed/PBMC/Model_INPUT_A/Train_set2.csv"
+test_file = "../../PBMC_multiome_preprocessed/PBMC/Model_INPUT_A/Test_set2.csv"
+val_file = "../../PBMC_multiome_preprocessed/PBMC/Model_INPUT_A/Validation_set2.csv"
 
 
 tf_embed_path = r'Result/MultiOmics2/'+data_type+' '+str(num)+'/Channel1.csv'
