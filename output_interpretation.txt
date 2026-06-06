@@ -1,0 +1,163 @@
+## Output Files and Interpretation
+
+After training, MultiCausGRN generates several output files that can be used for performance evaluation, biological interpretation, and figure generation.
+
+### 1. Predicted Regulatory Interactions
+
+#### predicted_edges_TRRUST_seed_X.csv
+
+Contains all predicted TF–target regulatory interactions for a given random seed.
+
+| Column | Description |
+|----------|----------|
+| TF_idx | Transcription factor index |
+| Target_idx | Target gene index |
+| Label | Ground-truth label (1 = positive, 0 = negative) |
+| Score | Predicted interaction probability |
+| TF_name | Transcription factor gene symbol |
+| Target_name | Target gene symbol |
+
+Example applications:
+
+- AUROC/AUPRC evaluation
+- Top-K interaction analysis
+- Hub TF identification
+- Biological interpretation
+
+---
+
+### 2. High-Confidence Predictions
+
+#### top_predicted_edges_TRRUST_seed_X_score_0.90.csv
+
+Subset of predicted interactions with prediction score greater than 0.90.
+
+Used for:
+
+- Hub TF analysis
+- Candidate regulatory relationship discovery
+- Biological validation
+
+---
+
+### 3. TF Embeddings
+
+#### Channel1.csv
+
+Learned latent representations for transcription factors.
+
+| Column | Description |
+|----------|----------|
+| Gene | TF gene symbol |
+| Feature 1–16 | Learned embedding dimensions |
+
+Used for:
+
+- PCA visualization
+- Cluster analysis
+- Regulatory similarity analysis
+
+Figure reference:
+
+- PCA visualization of TF embeddings
+
+---
+
+### 4. Target Gene Embeddings
+
+#### Channel2.csv
+
+Learned latent representations for target genes.
+
+| Column | Description |
+|----------|----------|
+| Gene | Target gene symbol |
+| Feature 1–16 | Learned embedding dimensions |
+
+Used for:
+
+- PCA visualization
+- Gene clustering
+- Functional similarity analysis
+
+Figure reference:
+
+- PCA visualization of target gene embeddings
+
+---
+
+### 5. Training Logs
+
+#### log_seed_X.txt
+
+Training log generated during optimization.
+
+Contains:
+
+- Training loss
+- Validation AUROC
+- Validation AUPR
+- Epoch information
+
+Used for:
+
+- Training dynamics analysis
+- Reproducibility
+- Figure generation
+
+---
+
+### 6. Prior Network
+
+#### TRRUST_prior_edges_no_val_test_setX.csv
+
+Leakage-free prior regulatory network used during graph construction.
+
+Contains:
+
+| Column | Description |
+|----------|----------|
+| TF | Transcription factor |
+| Target | Target gene |
+
+Validation and test positive interactions are removed before model training.
+
+---
+
+### 7. Performance Summary
+
+#### results_seed_X.csv
+
+Performance metrics for an individual run.
+
+Contains:
+
+- Validation AUPR
+- Test AUROC
+- Test AUPRC
+
+Used to compute:
+
+- Mean performance
+- Standard deviation
+- Stability analyses across seeds
+
+---
+
+### 8. Generated Figures
+
+The repository includes scripts for generating all manuscript figures:
+
+| Figure | Description |
+|----------|----------|
+| Figure 1 | Baseline vs TRRUST performance comparison |
+| Figure 2 | Training dynamics (Validation AUPR/AUROC) |
+| Figure 3 | Performance stability across random seeds |
+| Figure 4 | Embedding PCA visualization |
+| Figure 5 | Top hub TFs and regulatory interactions |
+
+All figures can be reproduced using:
+
+```bash
+python multicausgrn_figures_clean.py
+```
